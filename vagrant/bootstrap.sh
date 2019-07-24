@@ -11,7 +11,7 @@ EOF
 sudo apt update
 # Add apt-transport-https
 echo "Install 'apt-transport-https'..."
-sudo apt install apt-transport-https
+sudo apt install --yes apt-transport-https
 #   Check apt update
 sudo apt update
 # Rewrite /etc/apt/sources.list
@@ -31,7 +31,7 @@ EOF
 sudo apt update
 # Ensure absent: unattended-upgrades
 echo "Ensure absent or remove 'unattended-upgrades'..."
-sudo apt purge unattended-upgrades
+sudo apt purge --yes unattended-upgrades
 # Pin all packages from 'testing'/'bullseye' and 'sid': prevent by default to install any of them
 echo "Disable 'bullseye' packages installation by default..."
 sudo tee /etc/apt/preferences.d/pin_bullseye <<EOF

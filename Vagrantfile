@@ -101,4 +101,11 @@ Vagrant.configure("2") do |config|
   # 1. Bootstrap VM with minimal Shell script, before provisoning with Ansible
   config.vm.provision :shell, path: "vagrant/bootstrap.sh"
 
+  # 2. Install some common utilities
+  config.vm.provision :shell, path: "vagrant/common_utilities.sh"
+
+  # 3. Set common shell aliases
+  config.vm.provision :shell, path: "vagrant/common_aliases.sh"
+
+
   end

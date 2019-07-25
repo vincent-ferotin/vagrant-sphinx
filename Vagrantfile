@@ -84,7 +84,10 @@ Vagrant.configure("2") do |config|
 
   # Configure share folder
   config.vm.synced_folder ".", "/vagrant",
-    type: "nfs"
+    type: "nfs",
+    nfs_version: 3,
+    nfs_exports: true,
+    nfs_udp: false
 
   # Continue configuring box
   config.vm.provider "virtualbox" do |virtualbox, override|

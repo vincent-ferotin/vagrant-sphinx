@@ -1,3 +1,6 @@
 *.swp
 .vagrant/
+doctrees/
+latex/*
+!latex/*.pdf
 

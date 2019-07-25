@@ -107,5 +107,7 @@ Vagrant.configure("2") do |config|
   # 3. Set common shell aliases
   config.vm.provision :shell, path: "vagrant/common_aliases.sh"
 
+  # 4. Install misc. dependencies, including minimal TexLive
+  config.vm.provision :shell, path: "vagrant/dependencies.sh"
 
   end

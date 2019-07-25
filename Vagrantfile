@@ -110,4 +110,7 @@ Vagrant.configure("2") do |config|
   # 4. Install misc. dependencies, including minimal TexLive
   config.vm.provision :shell, path: "vagrant/dependencies.sh"
 
+  # 5. Install dedicated Python virtualenv for Sphinx
+  config.vm.provision :shell, path: "vagrant/virtualenv.sh"
+
   end

@@ -57,6 +57,13 @@ NB: Using DHCP (with *type: "dhcp"*) seems to don't work for me
 on [Ubuntu] [Disco] (19.04).
 
 
+### Host firewall
+
+Be sure that any firewall on your host is either shutdown,
+or explicitely configured to allow traffic from and to network subnet linked to
+the dedicated *VirtualBox* network interface.
+
+
 ### Users group
 
 In order to give via *sudo* some specfic rights to load and use [NFS] server,

@@ -68,7 +68,7 @@ That is, if static IP in *Vagrantfile* is set to *192.168.57.3*,
 [DHCP] must be deactivated.
 
 NB: Using DHCP (with *type: "dhcp"*) seems to don't work for me
-on [Ubuntu] [Disco] (19.04).
+on tested hosts.
 
 
 ### Host firewall

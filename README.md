@@ -41,6 +41,22 @@ NB: Following configuration should work for tested host, i.e. [Debian] [Stretch]
 If your operating system differs, adapt these recommandations accordingly.
 
 
+### VirtualBox network interface and Vagrant machine IP
+
+In order to share project's root via [NFS] to the [Vagrant] virtual machine,
+a dedicated [VirtualBox] network interface must be created and set.
+
+Go to *VirtualBox* GUI and ensure that a dedicated network interface
+is created for host-only network, for example *vboxnet1*.
+Its IPv4 adress and subnet mask must match static IP set in *Vagrantfile*.
+That is, if static IP in *Vagrantfile* is set to *192.168.57.3*,
+*vboxnet1* must be set to *192.168.57.1* with a subnet mask to *255.255.255.0*.
+[DHCP] must be deactivated.
+
+NB: Using DHCP (with *type: "dhcp"*) seems to don't work for me
+on [Ubuntu] [Disco] (19.04).
+
+
 ### Users group
 
 In order to give via *sudo* some specfic rights to load and use [NFS] server,
@@ -155,11 +171,14 @@ Ensure, after copying directory content, to:
 [Buster]:               https://www.debian.org/releases/buster/
 [Debian]:               https://www.debian.org/
 [debian-buster-box]:    https://app.vagrantup.com/debian/boxes/buster64
+[DHCP]:                 https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+[Disco]:                http://releases.ubuntu.com/disco/
 [LaTeX]:                https://www.latex-project.org/
 [Linux]:                https://en.wikipedia.org/wiki/Linux_kernel
 [NFS]:                  https://en.wikipedia.org/wiki/Network_File_System_%28protocol%29
 [Sphinx]:               https://www.sphinx-doc.org/
 [Stretch]:              https://www.debian.org/releases/stretch/
+[Ubuntu]:               https://ubuntu.com/
 [Vagrant]:              https://www.vagrantup.com/
 [VirtualBox]:           https://www.virtualbox.org/
 

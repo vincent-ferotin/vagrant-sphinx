@@ -34,8 +34,10 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", ip: "192.168.33.199"
+  #     NB: Using DHCP (with ``type: "dhcp"``) seems to don't work for me
+  #     on Ubuntu Disco 19.04 with Vagrant 2.2.5 and VirtualBox 6.0.10.
+  # config.vm.network "private_network", type: "dhcp"
+  config.vm.network "private_network", ip: "192.168.57.3"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

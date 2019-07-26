@@ -28,8 +28,8 @@ This *Vagrant* machine depends on:
 
 Versions tested are:
 
-*   host: *Debian* [Stretch]
-*   *Vagrant* >= 2.2.5
+*   host: *Debian* [Stretch], or [Ubuntu] [Disco]
+*   *Vagrant* >= 2.2.x
 *   *VirtualBox* >= 6.0
 *   *debian/buster64* *Vagrant* box >= 10.0
 *   *NFS* >= 3 && < 4, by the [Linux] kernel.
@@ -37,8 +37,9 @@ Versions tested are:
 
 ## Additional required configurations
 
-NB: Following configuration should work for tested host, i.e. [Debian] [Stretch].
-If your operating system differs, adapt these recommandations accordingly.
+NB: Following configuration should work for tested hosts (see above).
+If your operating system differs, please let adapt these recommandations
+accordingly.
 
 
 ### VirtualBox network interface and Vagrant machine IP

@@ -48,6 +48,30 @@ Versions tested are:
 *   *NFS* >= 3 && < 4, by the [Linux] kernel.
 
 
+## Project structure
+
+Present project's tree structure is compound of material for both [Vagrant]
+and [Sphinx].
+
+*Vagrant*'s dedicated material comprises:
+
+*   *Vagrantfile*, describing *Vagrant* machine,
+*   *vagrant/* directory, which includes provisionning *Bash* shell scripts.
+
+*Sphinx*' dedicated material comprises:
+
+*   *Makefile*, for generating documentation outputs,
+*   *src/* directory, with *Sphinx*' [reStructuredText] files and configuration,
+*   *doctrees/*, for internal use of *Sphinx*,
+*   *html/* and *latex/* directories, for outputs respectively in HTML and
+    [LaTeX]/*PDF*.
+
+This structure allows storing both documentation's sources and outputs in
+selected formats in the very same versionable tree, such that non-technical users
+could have access to its content without having to use underlying tools
+used to generage them (*git*, *Sphinx*, etc.).
+
+
 ## Additional required configurations
 
 NB: Following configuration should work for tested hosts (see above).
@@ -197,6 +221,7 @@ Ensure, after copying directory content, to:
 [LaTeX]:                https://www.latex-project.org/
 [Linux]:                https://en.wikipedia.org/wiki/Linux_kernel
 [NFS]:                  https://en.wikipedia.org/wiki/Network_File_System_%28protocol%29
+[reStructuredText]:     http://docutils.sourceforge.net/rst.html
 [Sphinx]:               https://www.sphinx-doc.org/
 [Stretch]:              https://www.debian.org/releases/stretch/
 [Ubuntu]:               https://ubuntu.com/

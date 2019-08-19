@@ -4,7 +4,7 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 # Constants
-SPHINX_VERSION="2.1"
+SPHINX_VERSION="2.2"
 SPHINX_VENV_NAME="sphinx-${SPHINX_VERSION}"
 SPHINX_VENV_DIRPATH="/opt/${SPHINX_VENV_NAME}"
 SPHINX_PIP="${SPHINX_VENV_DIRPATH}/bin/pip"

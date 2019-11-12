@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-
-bold=$(tput bold)
-normal=$(tput sgr0)
+# Install Sphinx dependencies
 
 # Install building packages
-echo "${bold}Install 'make' package...${normal}"
-sudo apt install --yes make
+msg "Install 'make' package..."
+install make
 
 # Install minimal LaTeX & TexLive packages
-echo "${bold}Install 'LaTeX' and 'TexLive' packages...${normal}"
-sudo apt install --yes texlive \
+msg "Install 'LaTeX' and 'TexLive' packages..."
+install texlive \
     texlive-latex-recommended \
     texlive-latex-extra \
     texlive-luatex \
@@ -24,6 +22,6 @@ sudo apt install --yes texlive \
     fonts-freefont-otf
 
 # Install Python packages
-echo "${bold}Install 'Python' packages...${normal}"
-sudo apt install --yes python3-venv
+msg "Install 'Python' packages..."
+install python3-setuptools python3-pip python3-wheel python3-venv
 

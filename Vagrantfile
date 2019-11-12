@@ -80,11 +80,11 @@ Vagrant.configure("2") do |config|
 
   # Set VM name
   #     See https://stackoverflow.com/questions/17845637/how-to-change-vagrant-default-machine-name
-  @vm_name = "debian-10-sphinx-2.1"
+  @vm_name = "sphinx-2.2"
   config.vm.hostname = @vm_name
   config.vm.define @vm_name
 
-  # Configure share folder
+  # Configure share folder with NFS
   config.vm.synced_folder ".", "/vagrant",
     type: "nfs",
     nfs_version: 3,
@@ -100,22 +100,7 @@ Vagrant.configure("2") do |config|
     virtualbox.memory = 1024
   end
 
+  # Provision VM with bash scripts
+  config.vm.provision :shell, path: "vagrant/bash/__all__.sh"
 
-  ### Provisionning (multiple steps) ###
-
-  # 1. Bootstrap VM with minimal Shell script, before provisoning with Ansible
-  config.vm.provision :shell, path: "vagrant/bootstrap.sh"
-
-  # 2. Install some common utilities
-  config.vm.provision :shell, path: "vagrant/common_utilities.sh"
-
-  # 3. Set common shell aliases
-  config.vm.provision :shell, path: "vagrant/common_aliases.sh"
-
-  # 4. Install misc. dependencies, including minimal TexLive
-  config.vm.provision :shell, path: "vagrant/dependencies.sh"
-
-  # 5. Install dedicated Python virtualenv for Sphinx
-  config.vm.provision :shell, path: "vagrant/virtualenv.sh"
-
-  end
+end

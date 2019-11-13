@@ -56,3 +56,10 @@ msg "Remove automatically obsolete packages..."
 msg 1 "'apt autoremove'..."
 apt autoremove --yes
 
+# Remove old kernels if any
+#   See https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script#answer-26759734
+if [ -x "$(command -v remove_old_kernels)" ]; then
+    msg "Remove some old kernels..."
+    remove_old_kernels
+fi
+

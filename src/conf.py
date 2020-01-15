@@ -24,12 +24,14 @@ from datetime import date
 project = "NOM DU PROJET"
 project_short_name = "nom-projet"
 author = 'Vincent Férotin'
-copyright = '2019, {}'.format(author)
+
+today = date.today()
+copyright = '{}, {}'.format(today.year, author)
 
 # The short X.Y version
 version = '0'
 # The full version, including alpha/beta/rc tags
-release = '{} - {}'.format(version, date.today().isoformat())
+release = '{} - {}'.format(version, today.isoformat())
 
 
 # -- General configuration ---------------------------------------------------

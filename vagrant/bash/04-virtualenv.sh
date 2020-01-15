@@ -4,7 +4,7 @@
 
 # Constants  ----------------------------------------------------------------
 
-SPHINX_VERSION="2.2"
+SPHINX_VERSION="2.3"
 SPHINX_VENV_NAME="sphinx-${SPHINX_VERSION}"
 SPHINX_VENV_DIRPATH="/opt/${SPHINX_VENV_NAME}"
 SPHINX_PIP="${SPHINX_VENV_DIRPATH}/bin/pip"

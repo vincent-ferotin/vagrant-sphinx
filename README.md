@@ -22,6 +22,8 @@ Present project has two explicit goals:
 *   serve as a common template for my personal french documentations projects,
     with a given minimal known-working configuration,
     notably regarding [Vagrant]/[VirtualBox] and [LaTeX] for [Sphinx];
+*   expose in main `Makefile` options to pass to *LaTeX* engine and
+    define explicitely *latex/Makefile* target(s);
 *   serve as material for discussing with *Sphinx* mainteners to illustrate
     what is my working configuration for using *LaTeX* with *Sphinx*
     under [Debian] [Buster], which slightly differs from default one

@@ -3,13 +3,15 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS      ?=
-SPHINXBUILD     ?= sphinx-build
-SOURCEDIR       = src
-BUILDDIR        = .
-LATEX_OUTPUTDIR = latex
-LATEX_MAKEFILE  = Makefile
-LATEXOPTS       = -lualatex --interaction=nonstopmode
+SPHINXOPTS          ?=
+SPHINXBUILD         ?= sphinx-build
+SOURCEDIR            = src
+BUILDDIR             = .
+DOCTREESDIR          = doctrees
+HTMLDIR              = html
+LATEXDIR             = latex
+LATEXOPTS            = --interaction=nonstopmode
+LATEXMAKEFILETARGET  =  # default to `all`: `all-pdf`
 
 # Determine this makefile's path.
 # Be sure to place this BEFORE `include` directives, if any.
@@ -34,9 +36,9 @@ help:
 .PHONY: help clean html pdf all Makefile
 
 clean: Makefile
-	@rm -Rf doctrees html latex
-	@mkdir doctrees html latex
-	@touch doctrees/.gitkeep html/.gitkeep latex/.gitkeep
+	@rm -Rf $(DOCTREESDIR) $(HTMLDIR) $(LATEXDIR)
+	@mkdir $(DOCTREESDIR) $(HTMLDIR) $(LATEXDIR)
+	@touch $(DOCTREESDIR)/.gitkeep $(HTMLDIR)/.gitkeep $(LATEXDIR)/.gitkeep
 
 # $(O) is meant as a shortcut for $(SPHINXOPTS).
 html: Makefile
@@ -44,8 +46,10 @@ html: Makefile
 
 # $(O) is meant as a shortcut for $(SPHINXOPTS).
 pdf: Makefile
-	@$(SPHINXBUILD) -b latex "$(SOURCEDIR)" "$(BUILDDIR)/$(LATEX_OUTPUTDIR)" $(SPHINXOPTS) $(O)
-	@cd $(LATEX_OUTPUTDIR) && $(MAKE) -f $(LATEX_MAKEFILE) all-pdf LATEXOPTS="$(LATEXOPTS)"
+	# Sphinx default for `latexpdf` target:
+	#@$(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@$(SPHINXBUILD) -b latex "$(SOURCEDIR)" "$(BUILDDIR)/$(LATEXDIR)" $(SPHINXOPTS) $(O)
+	@cd $(LATEXDIR) && $(MAKE) $(LATEXMAKEFILETARGET) LATEXOPTS="$(LATEXOPTS)"
 
 # See https://stackoverflow.com/questions/5377297/how-to-manually-call-another-target-from-a-make-target
 # for recursive call of Makefile

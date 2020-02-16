@@ -193,7 +193,7 @@ $ vagrant ssh
 #   i.e. /path/to/repo/vagrant-sphinx root
 vagrant@sphinx-2.4$ cd /vagrant
 #   Activate Sphinx virtualenv
-vagrant@sphinx-2.4$ source /opt/sphinx-2.4/bin/activate
+vagrant@sphinx-2.4$ source /opt/sphinx/bin/activate
 #   See Makefile help
 vagrant@sphinx-2.4$ make [help]
 #   Only four targets are available: 'html', 'pdf', 'clean' and 'all'

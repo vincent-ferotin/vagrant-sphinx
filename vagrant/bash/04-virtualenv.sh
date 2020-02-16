@@ -5,9 +5,10 @@
 # Constants  ----------------------------------------------------------------
 
 SPHINX_VERSION="2.4"
-SPHINX_VENV_NAME="sphinx-${SPHINX_VERSION}"
+SPHINX_VENV_NAME="sphinx"
 SPHINX_VENV_DIRPATH="/opt/${SPHINX_VENV_NAME}"
 SPHINX_PIP="${SPHINX_VENV_DIRPATH}/bin/pip"
+PYTHON_SETUP_PACKAGES="setuptools pip wheel"
 
 
 # Maing  --------------------------------------------------------------------
@@ -20,7 +21,7 @@ fi
 
 # Update Python packaging tools
 msg "Install or upgade Python packaging tools..."
-for package in setuptools pip wheel; do
+for package in "$PYTHON_SETUP_PACKAGES"; do
     $SPHINX_PIP install --upgrade $package
 done
 

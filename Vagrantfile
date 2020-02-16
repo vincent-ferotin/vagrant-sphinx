@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   #config.vm.box = "hashicorp/precise64"
   config.vm.box = "debian/buster64"
-  config.vm.box_version = ">= 10.0"
+  config.vm.box_version = ">= 10.3"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

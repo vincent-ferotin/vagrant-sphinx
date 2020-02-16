@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
 
   # Set VM name
   #     See https://stackoverflow.com/questions/17845637/how-to-change-vagrant-default-machine-name
-  @vm_name = "sphinx-2.3"
+  @vm_name = "sphinx-2.4"
   config.vm.hostname = @vm_name
   config.vm.define @vm_name
 

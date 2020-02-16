@@ -10,9 +10,6 @@ copy /etc/apt/apt.conf.d/90norecommends
 # Check apt update
 apt_update
 
-# Add apt-transport-https
-install apt-transport-https
-
 # Rewrite /etc/apt/sources.list
 msg "Set specific APT sources list..."
 copy /etc/apt/apt/sources.list

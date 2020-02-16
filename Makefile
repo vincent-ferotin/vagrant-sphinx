@@ -11,6 +11,7 @@ DOCTREESDIR          = doctrees
 HTMLDIR              = html
 LATEXDIR             = latex
 LATEXOPTS            = --interaction=nonstopmode
+LATEXMKOPTS         ?=
 LATEXMAKEFILETARGET  =  # default to `all`: `all-pdf`
 
 # Determine this makefile's path.
@@ -20,17 +21,12 @@ THIS_MAKEFILE  := $(abspath $(lastword $(MAKEFILE_LIST)))
 
 # Put it first so that "make" without argument is like "make help".
 help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo ""
-	@echo "***********************************"
-	@echo "** Particularités de ce Makefile **"
-	@echo "***********************************"
-	@echo ""
-	@echo "Seules les cibles suivantes sont disponibles pour le présent projet:"
-	@echo "  clean"
-	@echo "  html"
-	@echo "  pdf"
-	@echo "  all"
+	@echo "Utilisez SVP ce Makefile via la commande \`make TARGET', où TARGET est une de cibles suivantes:"
+	@echo "  clean - Supprime tous les fichiers générés précédemment par Sphinx."
+	@echo "  html  - Génère la documentation sous forme d'un site HTML statique."
+	@echo "  pdf   - Génère la documentation sous forme d'un ou plusieurs fichiers PDF."
+	@echo "  all   - Génère la documentation sous tous les formats ci-dessus (actuellement: HTML et PDF)."
 	@echo ""
 
 .PHONY: help clean html pdf all Makefile
@@ -49,7 +45,7 @@ pdf: Makefile
 	# Sphinx default for `latexpdf` target:
 	#@$(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@$(SPHINXBUILD) -b latex "$(SOURCEDIR)" "$(BUILDDIR)/$(LATEXDIR)" $(SPHINXOPTS) $(O)
-	@cd $(LATEXDIR) && $(MAKE) $(LATEXMAKEFILETARGET) LATEXOPTS="$(LATEXOPTS)"
+	@cd $(LATEXDIR) && $(MAKE) $(LATEXMAKEFILETARGET) LATEXOPTS="$(LATEXOPTS)" LATEXMKOPTS="$(LATEXMKOPTS)"
 
 # See https://stackoverflow.com/questions/5377297/how-to-manually-call-another-target-from-a-make-target
 # for recursive call of Makefile

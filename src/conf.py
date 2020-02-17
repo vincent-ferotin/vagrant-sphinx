@@ -85,24 +85,86 @@ latex_elements = {
 
     # The font size ('10pt', '11pt' or '12pt').
     #
-    # 'pointsize': '10pt',
+    #'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    #'preamble': '',
+
+    # Additional document content (right before the indices).
+    #
+    #'atendofbody': '',
 
     # Latex figure (float) alignment
     #
-    # 'figure_align': 'htbp',
+    #'figure_align': 'htbp',
+
+    # `babel` package inclusion, default to '\\usepackage{babel}'
+    # (the suitable document language string is passed as class option,
+    # and english is used if no language).
+    # With LuaLaTeX, Sphinx configures the LaTeX document to use polyglossia:
+    # '\\usepackage{polyglossia}'.
+    #
+    #'babel': '\\usepackage{polyglossia}',
+
+    # Inclusion of the `fncychap` package (which makes fancy chapter titles),
+    # default to '\\usepackage[Sonny]{fncychap}' for internationalized docs.
+    # Other `fncychap` styles you can try are 'Bjarne' for english doc.,
+    # 'Lenny', 'Glenn', 'Conny', 'Rejne' and 'Bjornstrup'.
+    # You can also set this to '' to disable fncychap.
+    #
+    #'fncychap': '\\usepackage[Sonny]{fncychap}',
+
+    # Value that prefixes 'release' element on title page, default 'Release'.
+    # As for title and author used in the tuples of latex_documents,
+    # it is inserted as LaTeX markup.
+    #
+    'releasename': 'Version',
+
+    # `tableofcontents` call, default '\\sphinxtableofcontents'
+    # (it is a wrapper of unmodified \tableofcontents, which may itself
+    # be customized by user loaded packages).
+    # Override if you want to generate a different table of contents or
+    # put content between the title page and the TOC, or disable TOC insertion.
+    #
+    #'tableofcontents': '\\sphinxtableofcontents',
+
+    # `printindex` call, the last thing in the file, default '\\printindex'.
+    # Override if you want to generate the index differently or append
+    # some content after the index.
+    # For example '\\footnotesize\\raggedright\\printindex' is advisable
+    # when the index is full of long entries.
+    #
+    #'printindex': '\\printindex',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
+#  author, documentclass [howto, manual, or own class],
+#  toctree_only).
 latex_documents = [
     (master_doc, '{}.tex'.format(project_short_name), project,
-     author, 'manual'),
+     author, 'manual', False),
 ]
+
+# Add page references after internal references.
+# This is very useful for printed copies of the manual. Default is False.
+latex_show_pagerefs = True
+
+# Control whether to display URL addresses.
+# This is very useful for printed copies of the manual.
+# The setting can have the following values:
+# - 'no': do not display URLs (default)
+# - 'footnote': display URLs in footnotes
+# - 'inline': display URLs inline in parentheses
+latex_show_urls = 'footnote'
+
+# Use `xindy` rather than makeindex for preparing the index of general terms
+# (from index usage). This means that words with UTF-8 characters will get
+# ordered correctly for the language.
+# True is recommended for non-English documents as soon as some indexed terms
+# use non-ascii characters from the language script.
+latex_use_xindy = True  # True by default if `latex_engine is 'lualatex'
 
 
 # -- Options for manual page output ------------------------------------------
